@@ -12,7 +12,7 @@ def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
 @app.post("/api_youtube/")
-def reply_user(payload:json):
+def reply_user(payload:dict):
 	#print(payload)
 		
 	data = {}
