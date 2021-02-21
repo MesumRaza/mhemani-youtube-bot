@@ -1,46 +1,25 @@
-from typing import Optional
-
 from fastapi import FastAPI
-
-from sklearn.externals import joblib
-
-import pandas as pd
-
-from ratelimit import limits
-
+import json
 
 app = FastAPI()
 
-# Use pickle to load in the pre-trained model
-model = joblib.load("diabeteseModel.pkl")
-
-
 @app.get("/")
 def read_root():
-	return {"DIABETES PREDICTION": "FAST API"}
+	return {"CUSTOM PLAYLIST API": "FAST API"}
 
-
-SECONDS = 60
-
-@app.get("/api_diabetes/")
-@limits(calls=5, period=SECONDS)
-def predict(payload:str):
+@app.get("/api_youtube/")
+def reply_user(payload:dict):
 	#print(payload)
-	values = [float(i) for i in payload.split(',')]
 	
-	headers = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin','BMI', 'DiabetesPedigreeFunction', 'Age']
 	
-	input_variables = pd.DataFrame([values],
-								columns=headers, 
-								dtype=float,
-								index=['input'])	
+	data = {}
+	data['user_id']=payload['user_id']
+	data['bot_id']=payload['bot_id']
+	data['module_id']=payload['module_id']
+	data['message'] = listOfVideos
+	data['suggested_replies']=[]
+	data['blocked_input']=True
 	
-	# Get the model's prediction
-	prediction = model.predict(input_variables)
-	#print("Prediction: ", prediction)
-	prediction_proba = model.predict_proba(input_variables)[0][1]
-	#print("Probabilities: ", prediction_proba)
-
-	ret = {"prediction":float(prediction),"prediction_proba":float(prediction_proba)}
-
-	return ret
+	json_data = json.dumps(data)
+	
+	return json_data
