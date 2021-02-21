@@ -7,7 +7,7 @@ app = FastAPI()
 def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
-@app.get("/api_youtube/")
+@app.post("/api_youtube/")
 def reply_user(payload:dict):
 	#print(payload)
 	
