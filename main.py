@@ -7,11 +7,14 @@ app = FastAPI()
 def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
+@app.get("/api_youtube/")
+def read_root():
+	return {"CUSTOM PLAYLIST API": "FAST API"}
+
 @app.post("/api_youtube/")
-def reply_user(payload:str):
+def reply_user(payload:json):
 	#print(payload)
-	
-	
+		
 	data = {}
 	data['user_id']=payload['user_id']
 	data['bot_id']=payload['bot_id']
