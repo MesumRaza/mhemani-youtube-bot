@@ -15,8 +15,8 @@ def reply_user(payload:dict):
 	data = {}
 	data['user_id']=payload['user_id']
 	data['bot_id']=payload['bot_id']
+	data['message'] = 'https://www.youtube.com/watch?v=l0leUH4ZXvU&list=TLGGV687NVFVkE0yMTAyMjAyMQ'
 	data['module_id']=payload['module_id']
-	data['message'] = listOfVideos
 	data['suggested_replies']=[]
 	data['blocked_input']=True
 	
