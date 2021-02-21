@@ -20,6 +20,4 @@ def reply_user(payload:dict):
 	data['suggested_replies']=[]
 	data['blocked_input']=True
 	
-	json_data = json.dumps(data)
-	
 	return json_data
