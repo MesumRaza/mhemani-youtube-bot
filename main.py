@@ -51,27 +51,25 @@ def read_root():
 
 	
 @app.post("/api_youtube/")
-def reply_user(payload:dict=None):
+def reply_user(user_id:str=None,bot_id:str=None,user_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,*,request:Request):
 	
 	#print(request.url)
 		
-	user_id=payload.get('user_id')
-	bot_id=payload.get('bot_id')
-	module_id=payload.get('module_id')
-	channel=payload.get('channel')
-	incoming_message=payload.get('incoming_message')
-	
-	print(user_id)
-	print(bot_id)
-	print(module_id)
-	print(channel)
-	print(incoming_message)
-	
-	print("Blank Payload")
-	
+	#user_id=payload.get('user_id')
+	#bot_id=payload.get('bot_id')
+	#module_id=payload.get('module_id')
+	#channel=payload.get('channel')
+	#incoming_message=payload.get('incoming_message')
+
 	data = {}
 
 	if user_id and bot_id and module_id and channel and incoming_message:
+		
+		print(user_id)
+		print(bot_id)
+		print(module_id)
+		print(channel)
+		print(incoming_message)
 		
 		search_term=incoming_message
 
@@ -116,7 +114,7 @@ def reply_user(payload:dict=None):
 		print(data)
 		
 	else:
-		
+		print("Blank Payload")
 		data['user_id']=user_id
 		data['bot_id']=bot_id
 		data['module_id']=module_id
