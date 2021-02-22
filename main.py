@@ -53,24 +53,21 @@ def read_root():
 def reply_user(payload:dict=None,*, request: Request):
 	
 	print(request.url)
+		
+	user_id=payload.get('user_id')
+	bot_id=payload.get('bot_id')
+	module_id=payload.get('module_id')
+	channel=payload.get('channel')
+	incoming_message=payload.get('incoming_message')
 	
-	user_id,bot_id,module_id,channel,incoming_message=None,None,None,None,None
+	print(user_id)
+	print(bot_id)
+	print(module_id)
+	print(channel)
+	print(incoming_message)
 	
-	if payload:
-		user_id=payload['user_id']
-		bot_id=payload['bot_id']
-		module_id=payload['module_id']
-		channel=payload['channel']
-		incoming_message=payload['incoming_message']
-		
-		print(user_id)
-		print(bot_id)
-		print(module_id)
-		print(channel)
-		print(incoming_message)
-		
-		print("Blank Payload")
-		
+	print("Blank Payload")
+	
 	data = {}
 
 	if user_id and bot_id and module_id and channel and incoming_message:
