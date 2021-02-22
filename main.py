@@ -50,9 +50,9 @@ def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
 @app.post("/api_youtube/")
-def reply_user(payload:dict=None,*, request: Request):
+def reply_user(payload:dict=None):
 	
-	print(request.url)
+	#print(request.url)
 		
 	user_id=payload.get('user_id')
 	bot_id=payload.get('bot_id')
