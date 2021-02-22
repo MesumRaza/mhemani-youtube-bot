@@ -58,29 +58,31 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 	print(channel)
 	print(message)
 	
-	search_term=message
-
-	results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
-
-	filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
-
-	#[print(x['title'],sep='\n') for x in filtered_results]
-
-	videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
-
-		
-	if filtered_results:
-		
-		listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videos)
-		final_url=requests.get(listOfVideos).url
-	
-	
 	data = {}
-	data['user_id']=user_id
-	data['bot_id']=bot_id
-	data['module_id']=module_id
-	data['message'] = final_url if filtered_results else 'No Content Found'
-	data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
-	data['blocked_input']=False
+
+	if user_id and bot_id and module_id and channel and message:
+		search_term=message
+
+		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
+
+		filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
+
+		#[print(x['title'],sep='\n') for x in filtered_results]
+
+		videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
+
+			
+		if filtered_results:
+			
+			listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videos)
+			final_url=requests.get(listOfVideos).url
+		
+		
+		data['user_id']=user_id
+		data['bot_id']=bot_id
+		data['module_id']=module_id
+		data['message'] = final_url if filtered_results else 'No Content Found'
+		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+		data['blocked_input']=False
 	
 	return data
