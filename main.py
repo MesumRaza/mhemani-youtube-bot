@@ -64,7 +64,7 @@ def reply_user(user_id:int,bot_id:int,module_id:int,channel:str,message:str, req
 
 	filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
 
-	[print(x['title'],sep='\n') for x in filtered_results]
+	#[print(x['title'],sep='\n') for x in filtered_results]
 
 	videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
 
