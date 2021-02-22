@@ -45,11 +45,11 @@ def parse_html(search_terms):
         return results
 		
 
-@app.get("/api_youtube/" , response_class=JSONResponse)
+@app.get("/api_youtube/")
 def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
-@app.post("/api_youtube/", response_class=JSONResponse)
+@app.post("/api_youtube/")
 def reply_user(payload:dict):
 	
 	print(payload)
