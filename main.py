@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import json
 from fuzzywuzzy import fuzz
 import requests
@@ -50,8 +50,8 @@ def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
 @app.post("/api_youtube/")
-def reply_user(user_id:int,bot_id:int,module_id:int,channel:str,message:str):
-	
+def reply_user(user_id:int,bot_id:int,module_id:int,channel:str,message:str, request: Request):
+	print(request.url)
 	print(user_id)
 	print(bot_id)
 	print(module_id)
