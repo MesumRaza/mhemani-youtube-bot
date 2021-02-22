@@ -45,7 +45,7 @@ def parse_html(search_terms):
         return results
 		
 
-@app.get("/api_youtube/")
+@app.get("/api_youtube/" , response_class=JSONResponse)
 def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
