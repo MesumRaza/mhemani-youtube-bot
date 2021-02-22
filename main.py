@@ -45,17 +45,12 @@ def parse_html(search_terms):
         return results
 		
 
-from pydantic import BaseModel
-
-class Payload(BaseModel):
-    data: str = ""	
-
 @app.get("/api_youtube/")
 def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
 @app.post("/api_youtube/")
-def reply_user(payload: Payload = None):
+def reply_user(user_id:int,bot_id:int,module_id:int,message:str):
 	
 	print(payload)
 	
