@@ -81,13 +81,29 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 		data['user_id']=user_id
 		data['bot_id']=bot_id
 		data['module_id']=module_id
-		data['message'] = final_url if filtered_results else 'No Content Found'
+		
+		if filtered_results:
+			
+			data['message'] = 'Here is your Personalized Playlist'
+			data['cards']=[
+				{
+				"type": "Channel KarachiDotAI",
+				"value": "Click Start Learning!",
+				"buttons": [
+					{
+						"type": "url",
+						"value": "https://google.com",
+						"name": "Start Learning"
+					}]
+		
+		else:
+			data['message'] = 'Here is your Personalized Playlist'
+			data['cards']=[]
+			
 		data['suggested_replies']=[]
 		data['blocked_input']=False
 		
 		print(data)
-		
-		return data
 		
 	else:
 		
@@ -98,4 +114,4 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
 		data['blocked_input']=False
 	
-		return data
+	return data
