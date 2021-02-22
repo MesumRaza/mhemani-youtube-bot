@@ -80,7 +80,7 @@ def reply_user(user_id:int,bot_id:int,module_id:int,channel:str,message:str):
 	data['bot_id']=bot_id
 	data['module_id']=module_id
 	data['message'] = final_url if filtered_results else 'No Content Found'
-	data['suggested_replies']=[]
-	data['blocked_input']=True
+	data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+	data['blocked_input']=False
 	
 	return data
