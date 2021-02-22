@@ -53,7 +53,7 @@ def read_root():
 @app.post("/api_youtube/")
 def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,*,request:Request):
 	
-	#print(request.url)
+	print(request.url)
 		
 	#user_id=payload.get('user_id')
 	#bot_id=payload.get('bot_id')
@@ -62,14 +62,16 @@ def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=N
 	#incoming_message=payload.get('incoming_message')
 
 	data = {}
+	
+	print(user_id)
+	print(bot_id)
+	print(module_id)
+	print(channel)
+	print(incoming_message)
 
 	if user_id and bot_id and module_id and channel and incoming_message:
 		
-		print(user_id)
-		print(bot_id)
-		print(module_id)
-		print(channel)
-		print(incoming_message)
+		
 		
 		search_term=incoming_message
 
