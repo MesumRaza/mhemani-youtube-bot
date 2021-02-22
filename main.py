@@ -52,31 +52,34 @@ def read_root():
 @app.post("/api_youtube/")
 def reply_user(user_id:int,bot_id:int,module_id:int,message:str):
 	
-	print(payload)
+	print(user_id)
+	print(bot_id)
+	print(module_id)
+	print(message)
 	
-# 	search_term=payload['message']
+	search_term=message
 
-# 	results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
+	results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
 
-# 	filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
+	filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
 
-# 	[print(x['title'],sep='\n') for x in filtered_results]
+	[print(x['title'],sep='\n') for x in filtered_results]
 
-# 	videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
+	videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
 
 		
-# 	if filtered_results:
+	if filtered_results:
 		
-# 		listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videos)
-# 		final_url=requests.get(listOfVideos).url
+		listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videos)
+		final_url=requests.get(listOfVideos).url
 	
 	
-# 	data = {}
-# 	data['user_id']=payload['user_id']
-# 	data['bot_id']=payload['bot_id']
-# 	data['message'] = final_url if filtered_results else 'No Content Found'
-# 	data['module_id']=payload['module_id']
-# 	data['suggested_replies']=[]
-# 	data['blocked_input']=True
+	data = {}
+	data['user_id']=user_id
+	data['bot_id']=bot_id
+	data['module_id']=module_id
+	data['message'] = final_url if filtered_results else 'No Content Found'
+	data['suggested_replies']=[]
+	data['blocked_input']=True
 	
-	return "Hi"
+	return data
