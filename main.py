@@ -87,6 +87,8 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 		
 		print(data)
 		
+		return data
+		
 	else:
 		
 		data['user_id']=user_id
@@ -96,4 +98,4 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
 		data['blocked_input']=False
 	
-	return data
+		return data
