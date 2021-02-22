@@ -82,13 +82,18 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 		data['bot_id']=bot_id
 		data['module_id']=module_id
 		data['message'] = final_url if filtered_results else 'No Content Found'
-		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+		data['suggested_replies']=[]
 		data['blocked_input']=False
 		
 		print(data)
 		
 	else:
-		data['CUSTOM PLAYLIST API']:'FAST API'
-		print(data)
+		
+		data['user_id']=user_id
+		data['bot_id']=bot_id
+		data['module_id']=module_id
+		data['message'] = 'Please enter your Query'
+		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+		data['blocked_input']=False
 	
 	return data
