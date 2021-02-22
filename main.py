@@ -50,12 +50,12 @@ def read_root():
 	return {"CUSTOM PLAYLIST API": "FAST API"}
 
 @app.post("/api_youtube/")
-def reply_user(user_id:int,bot_id:int,module_id:int,channel_id:str,message:str):
+def reply_user(user_id:int,bot_id:int,module_id:int,channel:str,message:str):
 	
 	print(user_id)
 	print(bot_id)
 	print(module_id)
-	print(channel_id)
+	print(channel)
 	print(message)
 	
 	search_term=message
