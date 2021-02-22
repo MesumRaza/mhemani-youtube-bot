@@ -57,13 +57,13 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 	print(bot_id)
 	print(module_id)
 	print(channel)
-	print(message)
+	print(incoming_message)
 	
 	data = {}
 
-	if user_id and bot_id and module_id and channel and message:
+	if user_id and bot_id and module_id and channel and incoming_message:
 		
-		search_term=message
+		search_term=incoming_message
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
 
@@ -87,7 +87,6 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 		
 		print(data)
 		
-		return data
 		
 	else:
 		
@@ -98,4 +97,4 @@ def reply_user(user_id:int=None,bot_id:int=None,module_id:int=None,channel:str=N
 		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
 		data['blocked_input']=False
 	
-		return data
+	return data
