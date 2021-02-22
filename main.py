@@ -104,7 +104,7 @@ def reply_user(payload:dict=None,*, request: Request):
 				"buttons": [
 					{
 						"type": "url",
-						"value": "https://google.com",
+						"value": final_url,
 						"name": "Start Learning"
 					}]}]
 		
