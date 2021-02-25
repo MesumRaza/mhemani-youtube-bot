@@ -64,12 +64,13 @@ def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=N
 	data = {}
 	
 	print(user_id)
+	print(step_id)
 	print(bot_id)
 	print(module_id)
 	print(channel)
 	print(incoming_message)
 
-	if user_id and bot_id and module_id and channel and incoming_message:
+	if user_id and bot_id and step_id and module_id and channel and incoming_message:
 		
 		
 		
