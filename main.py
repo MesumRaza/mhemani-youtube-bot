@@ -74,7 +74,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 
 	if user_id and bot_id and step_id and module_id and channel and incoming_message!="API":
 		
-		
+		print("CheckPoint-1")
 
 		search_term=incoming_message
 
@@ -86,11 +86,14 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 
 		videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
 			
+		print("CheckPoint-2")
+
 		if filtered_results:
 			
 			listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videos)
 			final_url=requests.get(listOfVideos).url
-		
+			print("CheckPoint-3")
+
 		data['user_id']=user_id
 		data['bot_id']=bot_id
 		data['module_id']=module_id
@@ -110,6 +113,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 						"value": final_url,
 						"name": "Start Learning"
 					}]}]
+			print("CheckPoint-4")
 			
 			print(data)
 			
