@@ -54,8 +54,7 @@ def read_root():
 def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,step_id:str=None,*,request:Request):
 	
 	print(request.url)
-	print(request.json)
-	print(request.form)
+	print(request.form())
 	print(request.headers)
 		
 	#user_id=payload.get('user_id')
