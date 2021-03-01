@@ -80,7 +80,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
 		
-		print(results)
+		print([x['title'] for x in results])
 
 		filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
 
