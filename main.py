@@ -110,6 +110,10 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 						"value": final_url,
 						"name": "Start Learning"
 					}]}]
+			
+			print(data)
+			
+			return data
 		
 	else:
 		print("Chat Initiated")
@@ -121,5 +125,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 		data['blocked_input']=False
 				
 		print(data)
+		
+		return data
 	
 	return data
