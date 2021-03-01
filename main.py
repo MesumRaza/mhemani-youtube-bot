@@ -53,9 +53,9 @@ def read_root():
 @app.post("/api_youtube/")
 def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,step_id:str=None,*,request:Request):
 	
-	print(response.request.url)
-	print(response.request.body)
-	print(response.request.headers)
+	print(request.url)
+	print(request.body)
+	print(request.headers)
 		
 	#user_id=payload.get('user_id')
 	#bot_id=payload.get('bot_id')
