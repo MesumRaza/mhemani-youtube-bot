@@ -53,9 +53,9 @@ def read_root():
 @app.post("/api_youtube/")
 async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Form(...),channel:str=Form(...),incoming_message:str=Form(...),step_id:str=Form(...),*,request:Request):
 	
-	print(request.url)
+	#print(request.url)
 	print(await request.form())
-	print(request.headers)
+	#print(request.headers)
 		
 	#user_id=payload.get('user_id')
 	#bot_id=payload.get('bot_id')
@@ -72,10 +72,10 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 	print(channel)
 	print(incoming_message)
 
-	if user_id and bot_id and step_id and module_id and channel and incoming_message:
+	if user_id and bot_id and step_id and module_id and channel and incoming_message!="API":
 		
 		
-		
+
 		search_term=incoming_message
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
@@ -111,14 +111,14 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 						"name": "Start Learning"
 					}]}]
 		
-		else:
-			print("Chat Initiated")
-			data['user_id']=user_id
-			data['bot_id']=bot_id
-			data['module_id']=module_id
-			data['message'] = 'Please enter your Query by Selecting from Below Cards or Writing your Custom Query'
-			data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
-			data['blocked_input']=False
+	else:
+		print("Chat Initiated")
+		data['user_id']=user_id
+		data['bot_id']=bot_id
+		data['module_id']=module_id
+		data['message'] = 'Please enter your Query by Selecting from Below Cards or Writing your Custom Query'
+		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+		data['blocked_input']=False
 				
 		print(data)
 	
