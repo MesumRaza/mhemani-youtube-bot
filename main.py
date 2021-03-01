@@ -122,7 +122,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 			print("CheckPoint-4")
 			
 		else:
-			data['message'] = 'Sorry Cannot find Your Topic, Let\'s Restart Recommendation! Please enter your Query by Selecting from Below Cards or Enter your Search Keyword'
+			data['message'] = 'Sorry Cannot find Your Topic, Let\'s Restart Recommendation! Please enter your choice by Selecting from Below Cards or Enter your Search Keyword and We will find best videos from our Youtube Channel'
 			data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
 			data['blocked_input']=False
 			
@@ -133,7 +133,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 		data['user_id']=user_id
 		data['bot_id']=bot_id
 		data['module_id']=module_id
-		data['message'] = 'Please enter your Query by Selecting from Below Cards or Writing your Custom Query'
+		data['message'] = 'Please enter your choice by Selecting from Below Cards or Enter your Search Keyword and We will find best videos from our Youtube Channel'
 		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
 		data['blocked_input']=False
 				
