@@ -51,7 +51,7 @@ def read_root():
 
 	
 @app.post("/api_youtube/")
-def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,step_id:str=None,*,request:Request):
+async def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,step_id:str=None,*,request:Request):
 	
 	print(request.url)
 	print(** await request.form())
