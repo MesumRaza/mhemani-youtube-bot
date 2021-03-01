@@ -105,7 +105,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 			data['message'] = 'Here is your Personalized Playlist'
 			data['cards']=[
 				{
-				"type": "Channel KarachiDotAI",
+				"type": "text",
 				"value": "Click Start Learning!",
 				"buttons": [
 					{
