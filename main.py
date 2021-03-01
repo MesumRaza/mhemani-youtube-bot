@@ -79,6 +79,8 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 		search_term=incoming_message
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
+		
+		print(results)
 
 		filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
 
@@ -119,8 +121,8 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 			print("CheckPoint-4")
 			
 		else:
-			data['message'] = 'Please enter your Query by Selecting from Below Cards or Writing your Custom Query'
-			data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+			data['message'] = 'Sorry Cannot find Your Topic'
+			data['suggested_replies']=['Restart Recommendation']
 			data['blocked_input']=False
 			
 		return data
