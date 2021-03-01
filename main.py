@@ -112,21 +112,14 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 					}]}]
 		
 		else:
-			data['message'] = 'Here is your Personalized Playlist'
-			data['cards']=[]
-			
-		data['suggested_replies']=[]
-		data['blocked_input']=False
-		
+			print("Chat Initiated")
+			data['user_id']=user_id
+			data['bot_id']=bot_id
+			data['module_id']=module_id
+			data['message'] = 'Please enter your Query by Selecting from Below Cards or Writing your Custom Query'
+			data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+			data['blocked_input']=False
+				
 		print(data)
-		
-	else:
-		print("Blank Payload")
-		data['user_id']=user_id
-		data['bot_id']=bot_id
-		data['module_id']=module_id
-		data['message'] = 'Please enter your Query by Selecting from Below Cards or Writing your Custom Query'
-		data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
-		data['blocked_input']=False
 	
 	return data
