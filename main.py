@@ -72,7 +72,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 	print(channel)
 	print(incoming_message)
 
-	if user_id and bot_id and step_id and module_id and channel and not any(word in incoming_message.lower() for word in ['recommend, learn, suggest, share']):
+	if user_id and bot_id and step_id and module_id and channel and not any(word in incoming_message.lower() for word in ['recommend', 'learn', 'suggest', 'share']):
 		
 		print("CheckPoint-1")
 
@@ -90,12 +90,13 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 			
 		print("CheckPoint-2")
 		
-		print(filtered_results)
+
 
 		if filtered_results:
 			
 			listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videos)
 			final_url=requests.get(listOfVideos).url
+			print(final_url)
 			print("CheckPoint-3")
 
 		data['user_id']=user_id
