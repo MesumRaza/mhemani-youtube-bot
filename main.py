@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 import json
 from fuzzywuzzy import fuzz
 import requests
