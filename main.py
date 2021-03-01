@@ -72,7 +72,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 	print(channel)
 	print(incoming_message)
 
-	if user_id and bot_id and step_id and module_id and channel and incoming_message!="API":
+	if user_id and bot_id and step_id and module_id and channel and incoming_message:
 		
 		print("CheckPoint-1")
 
@@ -113,11 +113,15 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 						"value": final_url,
 						"name": "Start Learning"
 					}]}]
+					
 			print("CheckPoint-4")
 			
-			print(data)
+		else:
+			data['message'] = 'Please enter your Query by Selecting from Below Cards or Writing your Custom Query'
+			data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
+			data['blocked_input']=False
 			
-			return data
+		return data
 		
 	else:
 		print("Chat Initiated")
