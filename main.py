@@ -87,6 +87,8 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 		videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
 			
 		print("CheckPoint-2")
+		
+		print(filtered_results)
 
 		if filtered_results:
 			
