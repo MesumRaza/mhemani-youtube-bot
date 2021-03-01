@@ -51,7 +51,7 @@ def read_root():
 
 	
 @app.post("/api_youtube/")
-async def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,step_id:str=None,*,request:Request):
+def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Form(...),channel:str=Form(...),incoming_message:str=Form(...),step_id:str=Form(...),*,request:Request):
 	
 	print(request.url)
 	print(await request.form())
@@ -72,9 +72,10 @@ async def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel
 	print(channel)
 	print(incoming_message)
 
-	if  incoming_message:
+	if user_id and bot_id and step_id and module_id and channel and incoming_message:
 		
-
+		
+		
 		search_term=incoming_message
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
