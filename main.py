@@ -72,7 +72,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 	print(channel)
 	print(incoming_message)
 
-	if user_id and bot_id and step_id and module_id and channel and incoming_message:
+	if user_id and bot_id and step_id and module_id and channel and not any(word in incoming_message.lower() for word in ['recommend, learn, suggest, share']):
 		
 		print("CheckPoint-1")
 
@@ -121,8 +121,8 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 			print("CheckPoint-4")
 			
 		else:
-			data['message'] = 'Sorry Cannot find Your Topic'
-			data['suggested_replies']=['Restart Recommendation']
+			data['message'] = 'Sorry Cannot find Your Topic, Let\'s Restart Recommendation! Please enter your Query by Selecting from Below Cards or Enter your Search Keyword'
+			data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
 			data['blocked_input']=False
 			
 		return data
