@@ -53,7 +53,9 @@ def read_root():
 @app.post("/api_youtube/")
 def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=None,incoming_message:str=None,step_id:str=None,*,request:Request):
 	
-	print(request.url)
+	print(response.request.url)
+	print(response.request.body)
+	print(response.request.headers)
 		
 	#user_id=payload.get('user_id')
 	#bot_id=payload.get('bot_id')
@@ -70,8 +72,9 @@ def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=N
 	print(channel)
 	print(incoming_message)
 
-	if user_id and bot_id and incoming_message:		
+	if  incoming_message:
 		
+
 		search_term=incoming_message
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
@@ -90,6 +93,8 @@ def reply_user(user_id:str=None,bot_id:str=None,module_id:str=None,channel:str=N
 		data['user_id']=user_id
 		data['bot_id']=bot_id
 		data['module_id']=module_id
+		data['step_id']=step_id
+		
 		
 		if filtered_results:
 			
