@@ -76,7 +76,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 		
 		print("CheckPoint-1")
 
-		search_term=incoming_message.lower()
+		search_term=incoming_message.lower().strip()
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
 		
