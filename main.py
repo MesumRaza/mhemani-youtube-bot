@@ -80,29 +80,28 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 
 		results = parse_html('AI Artificial Intelligence in '+search_term+' "KarachiDotAI"')
 		
-		print([x['title'] for x in results])
+		#print([x['title'] for x in results])
 
-		filtered_results= [x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>80]
+		filtered_results=[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>80]
 
-		#[print(x['title'],sep='\n') for x in filtered_results]
+		[print(x['title'],sep='\n') for x in filtered_results]
 
 		videos=[x['url_suffix'].split('=')[1] for x in filtered_results]
 			
 		print("CheckPoint-2")
 		
-
 		if filtered_results:
 			
 			listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videos)
 			final_url=requests.get(listOfVideos).url
 			print(final_url)
+			
 			print("CheckPoint-3")
 
 		data['user_id']=user_id
 		data['bot_id']=bot_id
 		data['module_id']=module_id
-		data['step_id']=step_id
-		
+		data['step_id']=step_id		
 		
 		if filtered_results:
 			
@@ -124,6 +123,8 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 			data['message'] = 'Sorry Cannot find Your Topic, Let\'s Restart Recommendation! Please enter your choice by Selecting from Below Cards or Enter your Search Keyword and We will find best videos from our Youtube Channel'
 			data['suggested_replies']=['NLP','Ecommerce','Finance','Robotics']
 			data['blocked_input']=False
+			
+			print("Failure-CheckPoint-1")
 			
 		return data
 		
