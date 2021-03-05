@@ -82,7 +82,7 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 		
 		print([x['title'] for x in results])
 
-		filtered_results= results #[x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>90]
+		filtered_results= [x for x in results if fuzz.partial_token_set_ratio(x['title'],search_term)>80]
 
 		#[print(x['title'],sep='\n') for x in filtered_results]
 
@@ -90,7 +90,6 @@ async def reply_user(user_id:str=Form(...),bot_id:str=Form(...),module_id:str=Fo
 			
 		print("CheckPoint-2")
 		
-
 
 		if filtered_results:
 			
